@@ -1,13 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="com.talentica.dsl.SimpleTest" tests="8" skipped="0" failures="0" errors="0" timestamp="2015-02-18T15:26:50" hostname="DebasishC" time="0.061">
+<testsuite name="com.talentica.dsl.SimpleTest" tests="9" skipped="0" failures="0" errors="0" timestamp="2015-02-18T16:27:52" hostname="debasish-HP-Pavilion-g6-Notebook-PC" time="0.078">
   <properties/>
-  <testcase name="testAdd" classname="com.talentica.dsl.SimpleTest" time="0.047"/>
-  <testcase name="testSimpleVariable" classname="com.talentica.dsl.SimpleTest" time="0.007"/>
-  <testcase name="testParentheses" classname="com.talentica.dsl.SimpleTest" time="0.001"/>
+  <testcase name="testAdd" classname="com.talentica.dsl.SimpleTest" time="0.062"/>
+  <testcase name="testSimpleVariable" classname="com.talentica.dsl.SimpleTest" time="0.005"/>
+  <testcase name="testParentheses" classname="com.talentica.dsl.SimpleTest" time="0.002"/>
+  <testcase name="testDecimal" classname="com.talentica.dsl.SimpleTest" time="0.001"/>
   <testcase name="testSubstract" classname="com.talentica.dsl.SimpleTest" time="0.0"/>
   <testcase name="testBodmas" classname="com.talentica.dsl.SimpleTest" time="0.0"/>
-  <testcase name="testDivide" classname="com.talentica.dsl.SimpleTest" time="0.0"/>
-  <testcase name="testTwoVariables" classname="com.talentica.dsl.SimpleTest" time="0.001"/>
+  <testcase name="testDivide" classname="com.talentica.dsl.SimpleTest" time="0.001"/>
+  <testcase name="testTwoVariables" classname="com.talentica.dsl.SimpleTest" time="0.002"/>
   <testcase name="testMultiply" classname="com.talentica.dsl.SimpleTest" time="0.001"/>
   <system-out><![CDATA[]]></system-out>
   <system-err><![CDATA[]]></system-err>

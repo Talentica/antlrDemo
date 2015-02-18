@@ -63,4 +63,10 @@ public class SimpleTest {
         Double result = runner.run("twoVariables.exp");
         assertEquals(8d, result, PRECISION);
     }
+
+    @Test
+    public void testDecimal() throws Exception{
+        Double result = runner.run("decimal.exp");
+        assertEquals(2.5d, result, PRECISION);
+    }
 }
