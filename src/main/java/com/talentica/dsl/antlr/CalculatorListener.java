@@ -11,6 +11,30 @@ import org.antlr.v4.runtime.tree.ParseTreeListener;
  */
 public interface CalculatorListener extends ParseTreeListener {
 	/**
+	 * Enter a parse tree produced by {@link CalculatorParser#statement}.
+	 * @param ctx the parse tree
+	 */
+	void enterStatement(@NotNull CalculatorParser.StatementContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link CalculatorParser#statement}.
+	 * @param ctx the parse tree
+	 */
+	void exitStatement(@NotNull CalculatorParser.StatementContext ctx);
+
+	/**
+	 * Enter a parse tree produced by the {@code addOrSubtract}
+	 * labeled alternative in {@link CalculatorParser#expression}.
+	 * @param ctx the parse tree
+	 */
+	void enterAddOrSubtract(@NotNull CalculatorParser.AddOrSubtractContext ctx);
+	/**
+	 * Exit a parse tree produced by the {@code addOrSubtract}
+	 * labeled alternative in {@link CalculatorParser#expression}.
+	 * @param ctx the parse tree
+	 */
+	void exitAddOrSubtract(@NotNull CalculatorParser.AddOrSubtractContext ctx);
+
+	/**
 	 * Enter a parse tree produced by the {@code multOrDiv}
 	 * labeled alternative in {@link CalculatorParser#expression}.
 	 * @param ctx the parse tree
@@ -22,6 +46,17 @@ public interface CalculatorListener extends ParseTreeListener {
 	 * @param ctx the parse tree
 	 */
 	void exitMultOrDiv(@NotNull CalculatorParser.MultOrDivContext ctx);
+
+	/**
+	 * Enter a parse tree produced by {@link CalculatorParser#program}.
+	 * @param ctx the parse tree
+	 */
+	void enterProgram(@NotNull CalculatorParser.ProgramContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link CalculatorParser#program}.
+	 * @param ctx the parse tree
+	 */
+	void exitProgram(@NotNull CalculatorParser.ProgramContext ctx);
 
 	/**
 	 * Enter a parse tree produced by the {@code idExpression}
@@ -48,41 +83,6 @@ public interface CalculatorListener extends ParseTreeListener {
 	 * @param ctx the parse tree
 	 */
 	void exitDoubleExpression(@NotNull CalculatorParser.DoubleExpressionContext ctx);
-
-	/**
-	 * Enter a parse tree produced by the {@code addOrSubtract}
-	 * labeled alternative in {@link CalculatorParser#expression}.
-	 * @param ctx the parse tree
-	 */
-	void enterAddOrSubtract(@NotNull CalculatorParser.AddOrSubtractContext ctx);
-	/**
-	 * Exit a parse tree produced by the {@code addOrSubtract}
-	 * labeled alternative in {@link CalculatorParser#expression}.
-	 * @param ctx the parse tree
-	 */
-	void exitAddOrSubtract(@NotNull CalculatorParser.AddOrSubtractContext ctx);
-
-	/**
-	 * Enter a parse tree produced by {@link CalculatorParser#statement}.
-	 * @param ctx the parse tree
-	 */
-	void enterStatement(@NotNull CalculatorParser.StatementContext ctx);
-	/**
-	 * Exit a parse tree produced by {@link CalculatorParser#statement}.
-	 * @param ctx the parse tree
-	 */
-	void exitStatement(@NotNull CalculatorParser.StatementContext ctx);
-
-	/**
-	 * Enter a parse tree produced by {@link CalculatorParser#program}.
-	 * @param ctx the parse tree
-	 */
-	void enterProgram(@NotNull CalculatorParser.ProgramContext ctx);
-	/**
-	 * Exit a parse tree produced by {@link CalculatorParser#program}.
-	 * @param ctx the parse tree
-	 */
-	void exitProgram(@NotNull CalculatorParser.ProgramContext ctx);
 
 	/**
 	 * Enter a parse tree produced by the {@code parenExpression}

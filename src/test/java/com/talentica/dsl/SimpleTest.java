@@ -6,8 +6,12 @@ import static org.junit.Assert.*;
  * Created by debasishc on 18/2/15.
  */
 public class SimpleTest {
-    CalculatorRunner runner = new CalculatorRunner();
+    CalculatorRunner runner = getRunner();
     private static final double PRECISION = 1e-10;
+
+    public CalculatorRunner getRunner(){
+        return new CalculatorRunner();
+    }
     
     @Test
     public void testAdd() throws Exception{

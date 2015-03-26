@@ -19,6 +19,32 @@ public class CalculatorBaseListener implements CalculatorListener {
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
+	@Override public void enterStatement(@NotNull CalculatorParser.StatementContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void exitStatement(@NotNull CalculatorParser.StatementContext ctx) { }
+
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void enterAddOrSubtract(@NotNull CalculatorParser.AddOrSubtractContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void exitAddOrSubtract(@NotNull CalculatorParser.AddOrSubtractContext ctx) { }
+
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
 	@Override public void enterMultOrDiv(@NotNull CalculatorParser.MultOrDivContext ctx) { }
 	/**
 	 * {@inheritDoc}
@@ -26,6 +52,19 @@ public class CalculatorBaseListener implements CalculatorListener {
 	 * <p>The default implementation does nothing.</p>
 	 */
 	@Override public void exitMultOrDiv(@NotNull CalculatorParser.MultOrDivContext ctx) { }
+
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void enterProgram(@NotNull CalculatorParser.ProgramContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void exitProgram(@NotNull CalculatorParser.ProgramContext ctx) { }
 
 	/**
 	 * {@inheritDoc}
@@ -52,45 +91,6 @@ public class CalculatorBaseListener implements CalculatorListener {
 	 * <p>The default implementation does nothing.</p>
 	 */
 	@Override public void exitDoubleExpression(@NotNull CalculatorParser.DoubleExpressionContext ctx) { }
-
-	/**
-	 * {@inheritDoc}
-	 *
-	 * <p>The default implementation does nothing.</p>
-	 */
-	@Override public void enterAddOrSubtract(@NotNull CalculatorParser.AddOrSubtractContext ctx) { }
-	/**
-	 * {@inheritDoc}
-	 *
-	 * <p>The default implementation does nothing.</p>
-	 */
-	@Override public void exitAddOrSubtract(@NotNull CalculatorParser.AddOrSubtractContext ctx) { }
-
-	/**
-	 * {@inheritDoc}
-	 *
-	 * <p>The default implementation does nothing.</p>
-	 */
-	@Override public void enterStatement(@NotNull CalculatorParser.StatementContext ctx) { }
-	/**
-	 * {@inheritDoc}
-	 *
-	 * <p>The default implementation does nothing.</p>
-	 */
-	@Override public void exitStatement(@NotNull CalculatorParser.StatementContext ctx) { }
-
-	/**
-	 * {@inheritDoc}
-	 *
-	 * <p>The default implementation does nothing.</p>
-	 */
-	@Override public void enterProgram(@NotNull CalculatorParser.ProgramContext ctx) { }
-	/**
-	 * {@inheritDoc}
-	 *
-	 * <p>The default implementation does nothing.</p>
-	 */
-	@Override public void exitProgram(@NotNull CalculatorParser.ProgramContext ctx) { }
 
 	/**
 	 * {@inheritDoc}

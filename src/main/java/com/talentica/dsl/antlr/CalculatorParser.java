@@ -22,7 +22,7 @@ public class CalculatorParser extends Parser {
 		T__6=1, T__5=2, T__4=3, T__3=4, T__2=5, T__1=6, T__0=7, ID=8, DOUBLE=9, 
 		COMMENT=10, WS=11;
 	public static final String[] tokenNames = {
-		"<INVALID>", "'/'", "'('", "')'", "'*'", "'+'", "'='", "'-'", "ID", "DOUBLE", 
+		"<INVALID>", "')'", "'+'", "'*'", "'-'", "'('", "'/'", "'='", "ID", "DOUBLE", 
 		"COMMENT", "WS"
 	};
 	public static final int
@@ -51,14 +51,14 @@ public class CalculatorParser extends Parser {
 		_interp = new ParserATNSimulator(this,_ATN,_decisionToDFA,_sharedContextCache);
 	}
 	public static class ProgramContext extends ParserRuleContext {
-		public StatementContext statement(int i) {
-			return getRuleContext(StatementContext.class,i);
-		}
 		public List<StatementContext> statement() {
 			return getRuleContexts(StatementContext.class);
 		}
 		public ExpressionContext expression() {
 			return getRuleContext(ExpressionContext.class,0);
+		}
+		public StatementContext statement(int i) {
+			return getRuleContext(StatementContext.class,i);
 		}
 		public ProgramContext(ParserRuleContext parent, int invokingState) {
 			super(parent, invokingState);
@@ -121,6 +121,23 @@ public class CalculatorParser extends Parser {
 			super.copyFrom(ctx);
 		}
 	}
+	public static class AddOrSubtractContext extends ExpressionContext {
+		public ExpressionContext expression(int i) {
+			return getRuleContext(ExpressionContext.class,i);
+		}
+		public List<ExpressionContext> expression() {
+			return getRuleContexts(ExpressionContext.class);
+		}
+		public AddOrSubtractContext(ExpressionContext ctx) { copyFrom(ctx); }
+		@Override
+		public void enterRule(ParseTreeListener listener) {
+			if ( listener instanceof CalculatorListener ) ((CalculatorListener)listener).enterAddOrSubtract(this);
+		}
+		@Override
+		public void exitRule(ParseTreeListener listener) {
+			if ( listener instanceof CalculatorListener ) ((CalculatorListener)listener).exitAddOrSubtract(this);
+		}
+	}
 	public static class MultOrDivContext extends ExpressionContext {
 		public ExpressionContext expression(int i) {
 			return getRuleContext(ExpressionContext.class,i);
@@ -138,18 +155,6 @@ public class CalculatorParser extends Parser {
 			if ( listener instanceof CalculatorListener ) ((CalculatorListener)listener).exitMultOrDiv(this);
 		}
 	}
-	public static class IdExpressionContext extends ExpressionContext {
-		public TerminalNode ID() { return getToken(CalculatorParser.ID, 0); }
-		public IdExpressionContext(ExpressionContext ctx) { copyFrom(ctx); }
-		@Override
-		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof CalculatorListener ) ((CalculatorListener)listener).enterIdExpression(this);
-		}
-		@Override
-		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof CalculatorListener ) ((CalculatorListener)listener).exitIdExpression(this);
-		}
-	}
 	public static class DoubleExpressionContext extends ExpressionContext {
 		public TerminalNode DOUBLE() { return getToken(CalculatorParser.DOUBLE, 0); }
 		public DoubleExpressionContext(ExpressionContext ctx) { copyFrom(ctx); }
@@ -162,21 +167,16 @@ public class CalculatorParser extends Parser {
 			if ( listener instanceof CalculatorListener ) ((CalculatorListener)listener).exitDoubleExpression(this);
 		}
 	}
-	public static class AddOrSubtractContext extends ExpressionContext {
-		public ExpressionContext expression(int i) {
-			return getRuleContext(ExpressionContext.class,i);
-		}
-		public List<ExpressionContext> expression() {
-			return getRuleContexts(ExpressionContext.class);
-		}
-		public AddOrSubtractContext(ExpressionContext ctx) { copyFrom(ctx); }
+	public static class IdExpressionContext extends ExpressionContext {
+		public TerminalNode ID() { return getToken(CalculatorParser.ID, 0); }
+		public IdExpressionContext(ExpressionContext ctx) { copyFrom(ctx); }
 		@Override
 		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof CalculatorListener ) ((CalculatorListener)listener).enterAddOrSubtract(this);
+			if ( listener instanceof CalculatorListener ) ((CalculatorListener)listener).enterIdExpression(this);
 		}
 		@Override
 		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof CalculatorListener ) ((CalculatorListener)listener).exitAddOrSubtract(this);
+			if ( listener instanceof CalculatorListener ) ((CalculatorListener)listener).exitIdExpression(this);
 		}
 	}
 	public static class ParenExpressionContext extends ExpressionContext {
@@ -212,15 +212,15 @@ public class CalculatorParser extends Parser {
 			{
 			setState(21);
 			switch (_input.LA(1)) {
-			case T__5:
+			case T__2:
 				{
 				_localctx = new ParenExpressionContext(_localctx);
 				_ctx = _localctx;
 				_prevctx = _localctx;
 
-				setState(15); match(T__5);
+				setState(15); match(T__2);
 				setState(16); expression(0);
-				setState(17); match(T__4);
+				setState(17); match(T__6);
 				}
 				break;
 			case ID:
@@ -261,7 +261,7 @@ public class CalculatorParser extends Parser {
 						if (!(precpred(_ctx, 4))) throw new FailedPredicateException(this, "precpred(_ctx, 4)");
 						setState(24);
 						_la = _input.LA(1);
-						if ( !(_la==T__6 || _la==T__3) ) {
+						if ( !(_la==T__4 || _la==T__1) ) {
 						_errHandler.recoverInline(this);
 						}
 						consume();
@@ -277,7 +277,7 @@ public class CalculatorParser extends Parser {
 						if (!(precpred(_ctx, 3))) throw new FailedPredicateException(this, "precpred(_ctx, 3)");
 						setState(27);
 						_la = _input.LA(1);
-						if ( !(_la==T__2 || _la==T__0) ) {
+						if ( !(_la==T__5 || _la==T__3) ) {
 						_errHandler.recoverInline(this);
 						}
 						consume();
@@ -330,7 +330,7 @@ public class CalculatorParser extends Parser {
 			enterOuterAlt(_localctx, 1);
 			{
 			setState(34); match(ID);
-			setState(35); match(T__1);
+			setState(35); match(T__0);
 			setState(36); expression(0);
 			}
 		}
@@ -364,14 +364,14 @@ public class CalculatorParser extends Parser {
 		"\3\u0430\ud6d1\u8206\uad2d\u4417\uaef1\u8d80\uaadd\3\r)\4\2\t\2\4\3\t"+
 		"\3\4\4\t\4\3\2\7\2\n\n\2\f\2\16\2\r\13\2\3\2\3\2\3\3\3\3\3\3\3\3\3\3\3"+
 		"\3\3\3\5\3\30\n\3\3\3\3\3\3\3\3\3\3\3\3\3\7\3 \n\3\f\3\16\3#\13\3\3\4"+
-		"\3\4\3\4\3\4\3\4\2\3\4\5\2\4\6\2\4\4\2\3\3\6\6\4\2\7\7\t\t*\2\13\3\2\2"+
+		"\3\4\3\4\3\4\3\4\2\3\4\5\2\4\6\2\4\4\2\5\5\b\b\4\2\4\4\6\6*\2\13\3\2\2"+
 		"\2\4\27\3\2\2\2\6$\3\2\2\2\b\n\5\6\4\2\t\b\3\2\2\2\n\r\3\2\2\2\13\t\3"+
 		"\2\2\2\13\f\3\2\2\2\f\16\3\2\2\2\r\13\3\2\2\2\16\17\5\4\3\2\17\3\3\2\2"+
-		"\2\20\21\b\3\1\2\21\22\7\4\2\2\22\23\5\4\3\2\23\24\7\5\2\2\24\30\3\2\2"+
+		"\2\20\21\b\3\1\2\21\22\7\7\2\2\22\23\5\4\3\2\23\24\7\3\2\2\24\30\3\2\2"+
 		"\2\25\30\7\n\2\2\26\30\7\13\2\2\27\20\3\2\2\2\27\25\3\2\2\2\27\26\3\2"+
 		"\2\2\30!\3\2\2\2\31\32\f\6\2\2\32\33\t\2\2\2\33 \5\4\3\7\34\35\f\5\2\2"+
 		"\35\36\t\3\2\2\36 \5\4\3\6\37\31\3\2\2\2\37\34\3\2\2\2 #\3\2\2\2!\37\3"+
-		"\2\2\2!\"\3\2\2\2\"\5\3\2\2\2#!\3\2\2\2$%\7\n\2\2%&\7\b\2\2&\'\5\4\3\2"+
+		"\2\2\2!\"\3\2\2\2\"\5\3\2\2\2#!\3\2\2\2$%\7\n\2\2%&\7\t\2\2&\'\5\4\3\2"+
 		"\'\7\3\2\2\2\6\13\27\37!";
 	public static final ATN _ATN =
 		new ATNDeserializer().deserialize(_serializedATN.toCharArray());
